@@ -10,9 +10,9 @@ class TestTdd(unittest.TestCase):
         # объект не должен меняться при взаимодействии
         five = Dollar(5)
         product = five.times(2)
-        self.assertEqual(10, product)
+        self.assertEqual(10, product.amount)
         product = five.times(3)
-        self.assertEqual(15, product)
+        self.assertEqual(15, product.amount)
 
 
 
