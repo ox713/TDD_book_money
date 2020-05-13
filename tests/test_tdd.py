@@ -10,9 +10,9 @@ class TestTdd(unittest.TestCase):
         five = Dollar(5)
         # повышение понятности тестов, сравниваем доллар с долларом
         # избавились от ненужной переменной product
-        self.assertEqual(Dollar(10).amount, five.times(2).amount)
+        self.assertEqual(Dollar(10).famount(), five.times(2).famount())
         product = five.times(3)
-        self.assertEqual(Dollar(15).amount, five.times(3).amount)
+        self.assertEqual(Dollar(15).famount(), five.times(3).famount())
     def test_equality(self):
         self.assertTrue(Dollar(5).equals(Dollar(5)))
         # триангуляция, создаем дополнительный пример для обобщения
