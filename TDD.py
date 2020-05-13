@@ -4,7 +4,12 @@ class Money(object):
         self._amount = amount
 
     def equals(self, money_obj):
-        return self._amount == money_obj._amount
+        if self.__class__ == money_obj.__class__:
+            return self._amount == money_obj._amount
+        else:
+            return None
+
+
 
 class Dollar(Money):
     # умножение
