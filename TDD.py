@@ -1,32 +1,21 @@
-class Dollar(object):
-    def __init__(self, amount):
-        self.__amount = amount
 
+class Money(object):
+    def __init__(self, amount):
+        self._amount = amount
+
+    def equals(self, money_obj):
+        return self._amount == money_obj._amount
+
+class Dollar(Money):
     # умножение
     def times(self, value_times):
-        return Dollar(self.__amount * value_times)
-
-    def equals(self, dollar_obj):
-        # здесь у автора заглушка в виде true, но он сделал отрицательный пример и пришлось писать функцию
-        return self.__amount == dollar_obj.famount()
-
-    def famount(self):
-        return self.__amount
+        return Dollar(self._amount * value_times)
 
 
 
-
-class Franc(object):
-    def __init__(self, amount):
-        self.__amount = amount
-
+class Franc(Money):
     # умножение
     def times(self, value_times):
-        return Franc(self.__amount * value_times)
+        return Franc(self._amount * value_times)
 
-    def equals(self, Franc_obj):
-        # здесь у автора заглушка в виде true, но он сделал отрицательный пример и пришлось писать функцию
-        return self.__amount == Franc_obj.famount()
 
-    def famount(self):
-        return self.__amount
