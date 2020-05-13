@@ -9,18 +9,27 @@ class Money(object):
         else:
             return None
 
+    # fabric method
+    def dollar(self):
+        return Dollar(self._amount)
+
+    def franc(self):
+        return Franc(self._amount)
+
+    def times(self, value_times):
+        return Money(self._amount * value_times)
 
 
 class Dollar(Money):
     # умножение
     def times(self, value_times):
-        return Dollar(self._amount * value_times)
+        return Money(self._amount * value_times)
 
 
 
 class Franc(Money):
     # умножение
     def times(self, value_times):
-        return Franc(self._amount * value_times)
+        return Money(self._amount * value_times)
 
 

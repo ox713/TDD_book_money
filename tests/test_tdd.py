@@ -6,8 +6,12 @@ from TDD import *
 
 class TestTdd(unittest.TestCase):
     def test_mul(self):
-        self.assertEqual(Dollar(10)._amount, Dollar(5).times(2)._amount)
-        self.assertEqual(Dollar(15)._amount, Dollar(5).times(3)._amount)
+
+        Money(10).dollar()
+        self.assertEqual(Money(10).dollar()._amount, Money(5).times(2)._amount)
+        self.assertEqual(Money(15).dollar()._amount, Money(5).times(3)._amount)
+        self.assertEqual(Money(10).franc()._amount, Money(5).times(2)._amount)
+        self.assertEqual(Money(15).franc()._amount, Money(5).times(3)._amount)
 
     def test_mul_Fr(self):
         self.assertEqual(Franc(10)._amount, Franc(5).times(2)._amount)
@@ -20,6 +24,7 @@ class TestTdd(unittest.TestCase):
         self.assertFalse(Franc(10).equals(Franc(5)))
         # сранвиваем доллары и франки
         self.assertFalse(Dollar(10).equals(Franc(10)))
+
 
 
 
