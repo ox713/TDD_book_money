@@ -14,3 +14,19 @@ class Dollar(object):
         return self.__amount
 
 
+
+
+class Franc(object):
+    def __init__(self, amount):
+        self.__amount = amount
+
+    # умножение
+    def times(self, value_times):
+        return Franc(self.__amount * value_times)
+
+    def equals(self, Franc_obj):
+        # здесь у автора заглушка в виде true, но он сделал отрицательный пример и пришлось писать функцию
+        return self.__amount == Franc_obj.famount()
+
+    def famount(self):
+        return self.__amount

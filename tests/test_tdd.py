@@ -18,6 +18,12 @@ class TestTdd(unittest.TestCase):
         # триангуляция, создаем дополнительный пример для обобщения
         self.assertFalse(Dollar(5).equals(Dollar(6)))
 
+    def test_mul_franc(self):
+        five = Franc(5)
+        self.assertEqual(Franc(10).famount(), five.times(2).famount())
+        self.assertEqual(Franc(15).famount(), five.times(3).famount())
+
+
 
 
 if __name__ == "__main__":
