@@ -7,16 +7,18 @@ from TDD import *
 
 class TestTdd(unittest.TestCase):
     def test_mul(self):
-        # объект не должен меняться при взаимодействии
         five = Dollar(5)
-        product = five.times(2)
-        self.assertEqual(10, product.amount)
+        # повышение понятности тестов, сравниваем доллар с долларом
+        # избавились от ненужной переменной product
+        self.assertEqual(Dollar(10).amount, five.times(2).amount)
         product = five.times(3)
-        self.assertEqual(15, product.amount)
-
-    # использование паттерна объект-значение для тогочтобы 5 д были 5 до
+        self.assertEqual(Dollar(15).amount, five.times(3).amount)
     def test_equality(self):
         self.assertTrue(Dollar(5).equals(Dollar(5)))
+        # триангуляция, создаем дополнительный пример для обобщения
+        self.assertFalse(Dollar(5).equals(Dollar(6)))
+
+
 
 if __name__ == "__main__":
     unittest.main()
