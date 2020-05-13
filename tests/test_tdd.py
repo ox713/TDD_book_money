@@ -25,6 +25,11 @@ class TestTdd(unittest.TestCase):
         # сранвиваем доллары и франки
         self.assertFalse(Dollar(10).equals(Franc(10)))
 
+    def test_currency(self):
+        self.assertEqual("USD", Dollar(1, "USD").dollar().currency())
+        self.assertEqual("CHF", Dollar(1, "CHF").dollar().currency())
+
+
 
 
 
