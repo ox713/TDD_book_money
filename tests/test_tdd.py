@@ -7,27 +7,23 @@ from TDD import *
 class TestTdd(unittest.TestCase):
     def test_mul(self):
 
-        Money(10).dollar()
-        self.assertEqual(Money(10).dollar()._amount, Money(5).times(2)._amount)
-        self.assertEqual(Money(15).dollar()._amount, Money(5).times(3)._amount)
-        self.assertEqual(Money(10).franc()._amount, Money(5).times(2)._amount)
-        self.assertEqual(Money(15).franc()._amount, Money(5).times(3)._amount)
+        self.assertEqual(Money(10, "USD")._amount, Money(5, "USD").times(2)._amount)
+        self.assertEqual(Money(10, "USD")._amount, Money(5, "USD").times(2)._amount)
+        self.assertEqual(Money(10, "CHF")._amount, Money(5, "CHF").times(2)._amount)
+        self.assertEqual(Money(10, "CHF")._amount, Money(5, "CHF").times(2)._amount)
 
-    def test_mul_Fr(self):
-        self.assertEqual(Franc(10)._amount, Franc(5).times(2)._amount)
-        self.assertEqual(Franc(15)._amount, Franc(5).times(3)._amount)
 
     def test_all_equality(self):
-        self.assertTrue(Dollar(10).equals(Dollar(10)))
-        self.assertFalse(Dollar(10).equals(Dollar(5)))
-        self.assertTrue(Franc(10).equals(Franc(10)))
-        self.assertFalse(Franc(10).equals(Franc(5)))
+        self.assertTrue(Money(10, "USD").equals(Money(10, "USD")))
+        self.assertFalse(Money(10, "USD").equals(Money(5, "USD")))
+        self.assertTrue(Money(10, "CHF").equals(Money(10, "CHF")))
+        self.assertFalse(Money(10, "CHF").equals(Money(5, "CHF")))
         # сранвиваем доллары и франки
-        self.assertFalse(Dollar(10).equals(Franc(10)))
+        self.assertFalse(Money(10, "USD").equals(Money(10, "CHF")))
 
     def test_currency(self):
-        self.assertEqual("USD", Dollar(1, "USD").dollar().currency())
-        self.assertEqual("CHF", Dollar(1, "CHF").dollar().currency())
+        self.assertEqual("USD", Money(1, "USD").currency())
+        self.assertEqual("CHF", Money(1, "CHF").currency())
 
 
 
